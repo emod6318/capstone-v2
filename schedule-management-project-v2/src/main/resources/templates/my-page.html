@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Title</title>
+    <link rel="stylesheet" href="/my-page/my-page-style.css">
+</head>
+<body>
+    <Nav>
+        <a href="/home" data-content="home">다들 달력</a>
+        <a href="/my-page" data-content="my-page">마이페이지</a>
+        <a href="/category" data-content="category">카테고리</a>
+        <a href="/schedule" data-content="schedule">일정</a>
+    </Nav>
+    <h1>마이페이지입니다</h1>
+
+    <div class="my-information-container">
+        <div>사용자 정보 <button onclick=openModal("check-info")> 정보수정 </button></div>
+        <div>
+            <div>사용자 이름</div>
+            <div id="my-name">김 명준</div>
+        </div>
+
+        <div>
+            <div>이메일</div>
+            <div id="my-email">mj20712320@gmail.com</div>
+        </div>
+
+        <div>
+            <div>비밀번호</div>
+            <div>*******</div>
+        </div>
+    </div>
+
+    <div class="friend-container">
+        <div>친구목록<button onclick=openModal("add-friend")> 친구추가 </button></div>
+        <div id="friend-list"></div>
+    </div>
+    <button onclick=openModal("delete-friend")>친구삭제</button>
+    <button onclick=openModal('delete-user')>회원탈퇴</button>
+    <!-- 정보 수정 전 아이디 확인 모달 -->
+    <div id="check-info-modal" class="modal">
+        <div class="modal-content">
+            <div>비밀 번호 확인</div>
+            <label><input id="get-email" placeholder="이메일"></label>
+            <label>비밀번호<input id="get-pw" placeholder="비밀 번호 입력"></label>
+            <button onclick=closeModal()>닫기</button>
+            <button onclick=infoCheck()>확인</button>
+        </div>
+    </div>
+    <!-- 정보 수정 모달 -->
+    <div id="change-info-modal" class="modal">
+        <div class="modal-content">
+            <div>정보 수정</div>
+            <div>*이메일은 변경 불가*</div>
+            <label>이름<input id="change-name"></label>
+            <div id="my-email-in"></div>
+            <label>비밀번호<input id="change-pw"></label>
+            <button onclick=closeModal()>닫기</button>
+            <button onclick=infoUpdate()>저장</button>
+        </div>
+    </div>
+    <!-- 친구 추가 모달 미구현-->
+    <div id="add-friend-modal" class="modal">
+        <div class="modal-content">
+            <div>친구 추가</div>
+            <label><input placeholder="사용자 이름" id="add-name"></label>
+            <label><input placeholder="이메일" id="add-email"></label>
+            <button onclick=closeModal()>닫기</button>
+            <button onclick=friendAdd()>추가</button>
+        </div>
+    </div>
+    <!-- 친구 삭제 모달-->
+    <div id="delete-friend-modal" class="modal">
+        <div class="modal-content">
+            <div>친구 삭제</div>
+            <div>확인 시 변경 불가</div>
+            <div>정말 삭제하시겠습니까?</div>
+            <label>
+                <select id="friend-select">
+                    <option value="" disabled selected class="placeholder">선택해주세요</option> <!-- 기본 옵션 -->
+                </select>
+            </label>
+            <button onclick=closeModal()>닫기</button>
+            <button  id="friend-delete-confirm" onclick=deleteBtn("friend")>확인</button>
+        </div>
+    </div>
+    <!-- 계정 삭제 모달-->
+    <div id="delete-user-modal" class="modal">
+        <div class="modal-content">
+            <div>회원탈퇴</div>
+            <div>확인시 변경 불가</div>
+            <div>정말 삭제하시겠습니까?</div>
+            <button onclick=closeModal()>닫기</button>
+            <button id="user-delete-confirm" onclick=deleteBtn("user")>확인</button>
+        </div>
+    </div>
+
+</body>
+<script src="/my-page/my-page-friend.js" defer></script>
+</html>

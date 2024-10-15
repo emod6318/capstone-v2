@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/my-page/my-page-style.css">
+</head>
+<body>
+    <Nav>
+        <a href="/home" data-content="home">다들 달력</a>
+        <a href="/my-page" data-content="my-page">마이페이지</a>
+        <a href="/category" data-content="category">카테고리</a>
+        <a href="/schedule" data-content="schedule">일정</a>
+    </Nav>
+    <h1>카테고리입니다</h1>
+    <button onclick=openModal("add-category")>카테고리 추가</button>
+
+    <ul id="category-list">
+        <li>
+            <span>카테고리명</span>
+            <span>색상</span>
+            <span>앞으로의 일정 수</span>
+        </li>
+    </ul>
+    <button onclick=openModal("delete-category")> 카테고리 삭제 </button>
+
+    <!-- 카테고리 추가 모달-->
+    <div id="add-category-modal" class="modal">
+        <div class="modal-content">
+            <div>카테고리 추가</div>
+            <label><input placeholder="카테고리 제목" name="categoryName" id="create-categoryName"></label>
+            <label>카테고리 색상<input name="categoryColor" id="create-categoryColor" type="color"></label>
+            <button onclick=closeModal()>닫기</button>
+            <button onclick=categoryAdd()>저장</button>
+        </div>
+    </div>
+    <!-- 카테고리 수정 모달-->
+    <div id="update-category-modal" class="modal">
+        <div class="modal-content">
+            <div>카테고리 수정</div>
+            <div>미등록은 이름 변경 불가</div>
+            <label><input placeholder="" name="categoryName" id="update-categoryName"></label>
+            <label><input placeholder="" name="categoryColor" id="update-categoryColor" type="color"></label>
+            <button onclick=closeModal()>닫기</button>
+            <button onclick=categoryUpdate()>확인</button>
+        </div>
+    </div>
+    <!-- 카테고리 삭제 모달-->
+    <div id="delete-category-modal" class="modal">
+        <div class="modal-content">
+            <div>카테고리 삭제</div>
+            <div>*미등록 삭제 불가*</div>
+            <div>*확인시 변경 불가*</div>
+            <div>정말 삭제하시겠습니까?</div>
+            <label>
+                <select id="category-select">
+                    <option value="" disabled selected class="placeholder">선택해주세요</option> <!-- 기본 옵션 -->
+                </select>
+            </label>
+            <button onclick=closeModal()>닫기</button>
+            <button onclick=deleteBtnClick()>확인</button>
+        </div>
+    </div>
+    <script src="/category/category-page-script.js"></script>
+
+</body>
+</html>

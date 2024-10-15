@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>월별 달력</title>
+    <link rel="stylesheet" href="/calender-style.css">
+</head>
+<body>
+<div id="calendar">
+    <div id="header">
+        <button id="prev-month"><</button>
+        <h2 id="month-year"></h2>
+        <button id="next-month">></button>
+        <button id="calendar-add">일정 추가</button>
+    </div>
+    <div id="days-container"></div>
+</div>
+
+<div id="modal" class="modal">
+
+    <div class="modal-content" id="modal-content">
+        <div>일정추가</div>
+        <label><input type="text" placeholder="제목" id="name"></label>
+        <label>
+            <select id="categorySelect">
+                <option value="" disabled selected class="placeholder">카테고리</option> <!-- 기본 옵션 -->
+            </select>
+        </label>
+        <label><input type="datetime-local" placeholder="시작일_시간" id="start_date"></label>
+        <label><input type="datetime-local" placeholder="종료일_시간" id="end_date"></label>
+        <label><textarea id="description"></textarea></label>
+        <button class="close-button" onclick="closeModal()">닫기</button> <!-- 닫기 버튼 추가 -->
+        <button class="save-button" onclick="saveSchedule()">저장</button>
+    </div>
+
+</div>
+
+
+</body>
+</html>

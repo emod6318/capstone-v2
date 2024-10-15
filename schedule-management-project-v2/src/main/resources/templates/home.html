@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/home-style.css">
+</head>
+<body>
+    <Nav>
+        <a href="/home" data-content="home">다들 달력</a>
+        <a href="/my-page" data-content="my-page">마이페이지</a>
+        <a href="/category" data-content="category">카테고리</a>
+        <a href="/schedule" data-content="schedule">일정</a>
+    </Nav>
+    <div class="Container">
+        <div class="side-menu">
+            <div class="category-menu" style="display: flex; flex-direction: column">
+                <div>카테고리</div>
+                <ul id="category-list"></ul>
+            </div>
+
+            <div class="friend-menu" style="display: flex; flex-direction: column">
+                <div>친구</div>
+                <ul id="friend-list"></ul>
+            </div>
+        </div>
+        <div id="calendar-container"></div> <!-- 캘린더를 로드할 공간 -->
+        <div id="today-menu">
+            <ul id="today-list"></ul>
+        </div>
+    </div>
+</body>
+<!--    session 값 확인 : <p th:text="${session.loginEmail}"></p>-->
+<script src="/friends-script.js" defer></script>
+<script src="/category-script.js" defer></script>
+<script src="/calender-script.js" defer></script>
+<script src="/main-home-script.js" defer></script>
+
+</html>

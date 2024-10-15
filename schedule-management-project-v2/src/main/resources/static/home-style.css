@@ -1,0 +1,11 @@
+.Container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around; /* 아이템을 주변에 균등 배치 */
+}
+.side-menu{
+    width: 180px;
+}
+.today-menu{
+    width: 340px;
+}

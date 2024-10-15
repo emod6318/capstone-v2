@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>회원가입</title>
+</head>
+<script>
+    function validatePassword() {
+        const password = document.getElementById("password").value;
+        const confirmPassword = document.getElementById("confirmPassword").value;
+
+        const message = document.getElementById("message");
+        if (password === confirmPassword) {
+            message.textContent = "비밀번호가 일치합니다.";
+            message.style.color = "green";
+            return true; // 비밀번호가 일치하면 폼 제출
+        } else {
+            message.textContent = "비밀번호가 일치하지 않습니다.";
+            message.style.color = "red";
+            return false; // 비밀번호가 일치하지 않으면 폼 제출 방지
+        }
+    }
+</script>
+<body>
+<div class="layout">
+    <form action="/join" method="POST" onsubmit="return validatePassword()">
+        <div>
+            <label>
+                <input type="text" name="name" placeholder="사용자 이름">
+                <input type="email" name="email" placeholder="이메일">
+            </label>
+        </div>
+        <div>
+            <label>
+                <input type="password" id="password" name="password" placeholder="비밀번호">
+                <input type="password" id="confirmPassword"  placeholder="비밀번호확인">
+            </label>
+        </div>
+        <div id="message"></div>
+        <button class="sinUpBtn" type="submit">회원가입</button>
+    </form>
+</div>
+</body>
+</html>
